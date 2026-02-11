@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Special One 💖</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4, #ffdde1);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.container {
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: white;
+}
+
+img {
+    width: 260px;
+    height: 260px;
+    border-radius: 20px;
+    margin-top: 20px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.4);
+}
+
+.quote {
+    margin-top: 20px;
+    font-size: 18px;
+    color: white;
+    font-style: italic;
+    padding: 0 20px;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    margin: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#yesBtn {
+    background: #ff4d6d;
+    color: white;
+}
+
+#noBtn {
+    background: white;
+    color: #ff4d6d;
+    position: absolute;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+/* Surprise Page */
+#surprise {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    color: white;
+    padding-top: 60px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="mainPage">
+    <h1>Will You Be My Valentine? 💖🌹</h1>
+
+    <!-- HER PHOTO -->
+    <img src="herphoto.jpg" alt="Her Beautiful Smile">
+
+    <p class="quote">
+        "In your smile I see something more beautiful than stars ✨💫  
+        You are my today and all of my tomorrows 💕"
+    </p>
+
+    <button id="yesBtn" onclick="showSurprise()">Yes 💍💖</button>
+    <button id="noBtn">No 😜</button>
+</div>
+
+<!-- SURPRISE SCREEN -->
+<div id="surprise">
+    <h1>Yayyyyy 💖 You Said YES! 🎉</h1>
+    <img src="herphoto.jpg">
+    <p class="quote">
+        "From this moment, my heart is officially yours forever 💞  
+        You are my dream, my love, my everything 💘✨"
+    </p>
+</div>
+
+<!-- MUSIC -->
+<audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mp3">
+</audio>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const music = document.getElementById("bgMusic");
+
+noBtn.addEventListener("mouseover", function() {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
+
+function showSurprise() {
+    document.getElementById("mainPage").style.display = "none";
+    document.getElementById("surprise").style.display = "block";
+    music.play();
+}
+</script>
+
+</body>
+</html>
